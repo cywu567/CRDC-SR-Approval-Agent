@@ -18,7 +18,9 @@ def run():
     """
     Run the crew.
     """
-    load_dotenv()
+    env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.env"))
+    load_dotenv(dotenv_path=env_path, override=True)
+    
     inputs = {
         "username": os.getenv("LOGIN_USERNAME"),
         "password": os.getenv("LOGIN_PASSWORD"),
@@ -27,9 +29,10 @@ def run():
 
     try:
         crew_instance = FedleadAgentCrewai(inputs=inputs)
-        crew_instance.crew().kickoff()
+        result = crew_instance.crew().kickoff()
+        return result or "Successfully ran fedlead_agent crew"
     except Exception as e:
-        raise Exception(f"An error occurred while running the crew: {e}")
+        return f"Error: {e}"
 
 
 def train():

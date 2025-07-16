@@ -2,10 +2,11 @@ from crewai.tools import BaseTool
 from typing import Type, List
 from pydantic import BaseModel, Field
 from fedlead_agent_crewai.utils.log_utils import log_tool_execution
+from fedlead_agent_crewai.utils.aws_client import get_bedrock_client
 import boto3
 import json
 
-bedrock = boto3.client("bedrock-runtime", region_name="us-east-1")
+bedrock = get_bedrock_client()
 
 class BedrockDecisionInput(BaseModel):
     goal: str = Field(..., description="What the agent is trying to do")
