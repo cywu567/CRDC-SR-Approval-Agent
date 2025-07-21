@@ -51,11 +51,11 @@ class LoginTool(BaseTool):
             return "Login successful"
 
         except Exception as e:
-            log_tool_execution(
-                tool_name="login_tool",
-                input_data=input_data,
-                output_data=None,
-                status="error",
-                error_message=str(e)
-            )
+            #log_tool_execution(
+            #    tool_name="login_tool",
+            #    input_data=input_data,
+            #    output_data=None,
+            #    status="error",
+            #    error_message=str(e)
+            #)
             return f"LoginTool error: {str(e)}"

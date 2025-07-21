@@ -11,7 +11,7 @@ def get_browser_session():
         return _browser, _context, _page
 
     _playwright = sync_playwright().start()
-    _browser = _playwright.chromium.launch(headless=False)  # or True for headless
+    _browser = _playwright.chromium.launch(headless=True)  # or True for headless
     _context = _browser.new_context()
     _page = _context.new_page()
     return _browser, _context, _page

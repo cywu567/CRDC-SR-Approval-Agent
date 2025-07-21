@@ -6,8 +6,6 @@ from fedlead_agent_crewai.utils.aws_client import get_bedrock_client
 import boto3
 import json
 
-bedrock = get_bedrock_client()
-
 class BedrockDecisionInput(BaseModel):
     goal: str = Field(..., description="What the agent is trying to do")
     options: List[str] = Field(..., description="List of visible button or action texts")
@@ -20,6 +18,7 @@ class BedrockDecisionTool(BaseTool):
     args_schema: Type[BaseModel] = BedrockDecisionInput
 
     def _run(self, goal: str, options: List[str], custom_prompt: str = "", max_tokens: int = 50) -> str:
+        bedrock = get_bedrock_client()
         input_data = {
             "goal": goal,
             "options": options,

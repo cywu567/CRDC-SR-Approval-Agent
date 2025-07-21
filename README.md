@@ -14,9 +14,10 @@ Designed for seamless execution in QA environments, the agent supports remote de
 
 2. **Add Login Info to .env file**
 ```
-   TOTP_SECRET=YOUR_TOTP_SECRET
-   LOGIN_USERNAME=YOUR_LOGIN_USERNAME
-   LOGIN_PASSWORD=YOUR_LOGIN_PASSWORD
+    MODEL=YOUR_LLM_MODEL
+    TOTP_SECRET=YOUR_TOTP_SECRET
+    LOGIN_USERNAME=YOUR_LOGIN_USERNAME
+    LOGIN_PASSWORD=YOUR_LOGIN_PASSWORD
 ```
 
 3. **Install requirements**
